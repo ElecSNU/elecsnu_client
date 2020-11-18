@@ -16,7 +16,7 @@ const account = {
 
         auth.signInWithEmailAndPassword(emailVal, passVal)
             .then(async (res) => {
-                console.log(res.user.uid);
+                // console.log(res.user.uid);
                 await actions.setToken(res.user.uid);
                 return true;
             })
@@ -31,11 +31,11 @@ const account = {
     }),
     check_login: thunk(async (actions) => {
         return auth.onAuthStateChanged(async (user) => {
-            console.log(
-                user
-                    ? 'Already Logged In ' + user.uid
-                    : 'Logged out'
-            );
+            // console.log(
+            //     user
+            //         ? 'Already Logged In ' + user.uid
+            //         : 'Logged out'
+            // );
             if (user) {
                 await actions.setToken(user.uid);
             }
@@ -101,7 +101,7 @@ const account = {
     }),
     setUserData: action(
         async (state, userData, roll_no) => {
-            console.log(userData);
+            // console.log(userData);
             state.user_data = userData;
             state.user_roll = roll_no;
         }
