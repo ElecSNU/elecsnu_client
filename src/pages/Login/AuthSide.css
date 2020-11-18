@@ -1,0 +1,18 @@
+#auth-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#auth-side .login-heading {
+    font-size: 2rem;
+}
+
+#auth-side #get-input {
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    width: 50%;
+    justify-content: space-between;
+}

@@ -1,0 +1,24 @@
+#login {
+    display: flex;
+    height: 100%;
+}
+
+#design-side,
+#auth-side {
+    height: 100%;
+    flex: 1;
+}
+
+.input-text {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 5rem;
+    border: transparent;
+    transition: all 0.7s;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.input-text:focus {
+    border: 2px solid var(--background);
+}
