@@ -1,19 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont,
-        'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-        'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas,
-        'Courier New', monospace;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Montserrat:wght@400;600&family=Raleway:wght@400;600;700&display=swap');
 
 :root {
     --light: #fffaff;
@@ -21,6 +6,27 @@ code {
     --background: #0a2463;
     --accent1: #d8315b;
     --accent2: #3e92cc;
+    --heading-font: 'Raleway', sans-serif;
+    --subheading-font: 'Fira Sans', sans-serif;
+    --normal-font: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--normal-font);
+    /* font-family: -apple-system, BlinkMacSystemFont,
+        'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas,
+        'Courier New', monospace;
 }
 
 a {
@@ -33,6 +39,42 @@ a {
     background-color: var(--background);
 }
 
+.background-light {
+    background-color: var(--light);
+}
+
+.background-dark {
+    background-color: var(--dark);
+}
+
+.background-accent1 {
+    background-color: var(--accent1);
+}
+
+.background-accent2 {
+    background-color: var(--accent2);
+}
+
+.foreground-back {
+    color: var(--background);
+}
+
+.foreground-light {
+    color: var(--light);
+}
+
+.foreground-dark {
+    color: var(--dark);
+}
+
+.foreground-accent1 {
+    color: var(--accent1);
+}
+
+.foreground-accent2 {
+    color: var(--accent2);
+}
+
 .submit-button {
     background-color: var(--background);
     color: var(--light);
@@ -41,11 +83,78 @@ a {
     border: none;
     border-radius: 10rem;
     width: 50%;
-    padding: 1rem 2rem;
+    padding: 0.75rem 2rem;
     transition: all 0.7s;
     cursor: pointer;
 }
 
 .submit-button:hover {
     box-shadow: 2.5px 5px 15px 2px rgba(0, 0, 0, 0.8);
+}
+
+.submit-border {
+    border: 2.5px solid var(--background);
+    color: var(--background);
+    background-color: transparent;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 10rem;
+    width: 50%;
+    padding: 0.75rem 2rem;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+
+.submit-border.dark {
+    border: 2.5px solid var(--accent2);
+    color: var(--accent2);
+}
+
+.submit-border:hover {
+    background-color: var(--background);
+    color: var(--light);
+}
+
+.submit-border.dark:hover {
+    background-color: var(--accent2);
+}
+
+.heading-font {
+    font-family: var(--heading-font);
+}
+
+.subheading-font {
+    font-family: var(--subheading-font);
+}
+
+.normal-font {
+    font-family: var(--normal-font);
+}
+
+.heading-text {
+    font-family: var(--heading-font);
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.subheading-text {
+    font-family: var(--subheading-font);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.normal-text {
+    font-family: var(--normal-font);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.border-radius-15 {
+    border-radius: 15px;
+}
+
+.box-shadow {
+    box-shadow: 0 0 30px 10px var(--dark);
 }

@@ -1,5 +1,7 @@
 import React, { Suspense } from 'react';
+import { ToastContainer } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 const Navbar = React.lazy(() =>
@@ -11,6 +13,7 @@ function App() {
     return (
         <Suspense fallback={<div></div>}>
             <div id='app'>
+                <ToastContainer />
                 <Navbar />
                 <MainPage />
             </div>

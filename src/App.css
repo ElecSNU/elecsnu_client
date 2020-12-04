@@ -12,4 +12,6 @@ html {
 
 #main-page {
     height: 92.5%;
+    display: grid;
+    place-items: center;
 }

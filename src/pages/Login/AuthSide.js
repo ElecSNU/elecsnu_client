@@ -1,9 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 
 import './AuthSide.css';
 
-const AuthSide = () => {
+const PasswordLess = React.lazy(() =>
+    import('./Paswordless')
+);
+
+const AuthSide = ({
+    showPasswordless,
+    setShowPasswordless,
+}) => {
     const loggedIn = useStoreState(
         (store) => store.accountModel.user_logged_in
     );
@@ -37,27 +44,50 @@ const AuthSide = () => {
 
     return (
         <section id='auth-side'>
-            <h1 className='login-heading'>LOGIN</h1>
-            <div id='get-input'>
-                <input
-                    className='input-text'
-                    type='text'
-                    ref={email}
-                    placeholder='Enter SNU Net ID'
-                />
-                <input
-                    className='input-text'
-                    type='password'
-                    ref={pass}
-                    placeholder='Enter password'
-                />
-            </div>
-            <button
-                className='submit-button'
-                onClick={() => handleLogin()}
+            <PasswordLess
+                showPasswordless={showPasswordless}
+                setShowPasswordless={setShowPasswordless}
+            />
+            <div
+                id='with-pass'
+                className={
+                    showPasswordless
+                        ? 'show-password-less'
+                        : ''
+                }
             >
-                LET'S VOTE
-            </button>
+                <h1 className='login-heading'>LOGIN</h1>
+                <div id='get-input'>
+                    <input
+                        className='input-text'
+                        type='text'
+                        ref={email}
+                        placeholder='Enter SNU Net ID'
+                    />
+                    <input
+                        className='input-text'
+                        type='password'
+                        ref={pass}
+                        placeholder='Enter password'
+                    />
+                </div>
+                <div className='submit-container'>
+                    <button
+                        className='submit-button'
+                        onClick={() => handleLogin()}
+                    >
+                        LET'S VOTE
+                    </button>
+                    <p
+                        className='passwordless-option'
+                        onClick={() =>
+                            setShowPasswordless(true)
+                        }
+                    >
+                        Sign in with ID Card
+                    </p>
+                </div>
+            </div>
         </section>
     );
 };

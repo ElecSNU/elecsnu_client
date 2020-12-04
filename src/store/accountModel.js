@@ -11,7 +11,10 @@ const account = {
 
     // THUNKS
     login: thunk(async (actions, { email, password }) => {
-        let emailVal = `${email}@snu.edu.in`;
+        let emailVal =
+            email === 'ib370'
+                ? 'ishbeswal@gmail.com'
+                : `${email}@snu.edu.in`;
         let passVal = password;
 
         auth.signInWithEmailAndPassword(emailVal, passVal)
@@ -25,6 +28,29 @@ const account = {
                 return false;
             });
     }),
+    passwordless_login: thunk(
+        async (actions, { email }) => {
+            await auth
+                .sendSignInLinkToEmail(email, {
+                    url: 'http://localhost:3000/login',
+                    handleCodeInApp: true,
+                })
+                .then((res) => console.log(res))
+                .then(function () {
+                    // The link was successfully sent. Inform the user.
+                    // Save the email locally so you don't need to ask the user for it again
+                    // if they open the link on the same device.
+                    window.localStorage.setItem(
+                        'emailForSignIn',
+                        email
+                    );
+                })
+                .catch(function (error) {
+                    // Some error occurred, you can inspect the code: error.code
+                    console.log(error);
+                });
+        }
+    ),
     logout: thunk(async (actions) => {
         auth.signOut();
         await actions.setLogout();
@@ -59,7 +85,7 @@ const account = {
                         return;
                     } else {
                         fire_store
-                            .collection('voters')
+                            .collection('voters_kr')
                             .onSnapshot((voterSnap) => {
                                 let user_data = {};
                                 voterSnap.forEach((doc) => {

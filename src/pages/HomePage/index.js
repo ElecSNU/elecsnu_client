@@ -6,7 +6,13 @@ import homeArt from '../../assets/images/home-art.svg';
 
 const HomePage = () => {
     return (
-        <div id='home'>
+        <div
+            id='home'
+            style={{
+                width: '100%',
+                height: '100%',
+            }}
+        >
             <div className='voting-banner'>
                 <h1>Let's make voting fun!</h1>
                 <button className='submit-button'>

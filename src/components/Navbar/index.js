@@ -16,20 +16,44 @@ const Navbar = () => {
     return (
         <div id='navbar'>
             <div className='brand'>
-                <NavLink to='/'>ElecSNU</NavLink>
+                <NavLink
+                    className='normal-text logout'
+                    to='/'
+                >
+                    ElecSNU
+                </NavLink>
             </div>
             <div className='links'>
-                <NavLink to='/features'>Features</NavLink>
-                <NavLink to='/about-us'>About Us</NavLink>
+                <NavLink
+                    className='normal-text'
+                    to='/features'
+                >
+                    Features
+                </NavLink>
+                <NavLink
+                    className='normal-text'
+                    to='/about-us'
+                >
+                    About Us
+                </NavLink>
                 {userLoggedIn ? (
-                    <NavLink to='/dashboard'>
+                    <NavLink
+                        className='normal-text'
+                        to='/dashboard'
+                    >
                         Dashboard
                     </NavLink>
                 ) : (
-                    <NavLink to='/login'>Login</NavLink>
+                    <NavLink
+                        className='normal-text'
+                        to='/login'
+                    >
+                        Login
+                    </NavLink>
                 )}
                 {userLoggedIn && (
                     <NavLink
+                        className='normal-text logout'
                         to='/'
                         onClick={() => logoutAction()}
                     >
