@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useStoreActions } from 'easy-peasy';
+import useLoader from './hooks/useLoader';
 
 import PrivateRoute from './components/PrivateRoute';
 
@@ -26,6 +27,12 @@ const MainPage = () => {
     const checkLoginAction = useStoreActions(
         (actions) => actions.accountModel.check_login
     );
+
+    const showLoader = useLoader();
+
+    useEffect(() => {
+        showLoader(false);
+    });
 
     useEffect(() => {
         checkLoginAction();

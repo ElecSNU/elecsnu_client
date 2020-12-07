@@ -4,6 +4,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
+import Loader from './components/Loader/Loader';
+
 const Navbar = React.lazy(() =>
     import('./components/Navbar/index')
 );
@@ -16,6 +18,7 @@ function App() {
                 <ToastContainer />
                 <Navbar />
                 <MainPage />
+                <Loader />
             </div>
         </Suspense>
     );

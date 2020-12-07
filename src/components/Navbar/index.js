@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 
@@ -9,9 +9,17 @@ const Navbar = () => {
         (actions) => actions.accountModel.logout
     );
 
-    const userLoggedIn = useStoreState(
+    const loggedIn = useStoreState(
         (store) => store.accountModel.user_logged_in
     );
+
+    let userLoggedIn = window.localStorage.getItem('token');
+
+    useEffect(() => {
+        userLoggedIn = window.localStorage.getItem('token');
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loggedIn]);
 
     return (
         <div id='navbar'>

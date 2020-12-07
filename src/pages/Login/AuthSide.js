@@ -1,5 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useStoreActions, useStoreState } from 'easy-peasy';
+import { toast } from 'react-toastify';
+import { Redirect } from 'react-router-dom';
+import useLoader from '../../hooks/useLoader';
 
 import './AuthSide.css';
 
@@ -11,9 +14,13 @@ const AuthSide = ({
     showPasswordless,
     setShowPasswordless,
 }) => {
-    const loggedIn = useStoreState(
-        (store) => store.accountModel.user_logged_in
+    const showLoader = useLoader();
+
+    const loginStatus = useStoreState(
+        (store) => store.accountModel.temp_status
     );
+
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const loginAction = useStoreActions(
         (actions) => actions.accountModel.login
@@ -26,6 +33,7 @@ const AuthSide = ({
     const pass = useRef();
 
     const handleLogin = async () => {
+        showLoader(true);
         loginAction({
             email: email.current.value,
             password: pass.current.value,
@@ -34,14 +42,30 @@ const AuthSide = ({
 
     useEffect(() => {
         const unsubscribe = checkLoginAction();
+        showLoader(false);
 
-        if (loggedIn) {
-            window.location.pathname = '/';
+        if (loginStatus != null) {
+            console.log('hey');
+
+            if (loginStatus[0]) {
+                toast.success(loginStatus[1]);
+                setLoggedIn(true);
+
+                window.location.pathname = '/';
+            } else {
+                toast.error(loginStatus[1]);
+                setLoggedIn(false);
+            }
         }
 
         return unsubscribe;
-    });
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loginStatus]);
+
+    // if (loggedIn) {
+    //     return <Redirect to='/' />;
+    // } else
     return (
         <section id='auth-side'>
             <PasswordLess
@@ -74,7 +98,7 @@ const AuthSide = ({
                 <div className='submit-container'>
                     <button
                         className='submit-button'
-                        onClick={() => handleLogin()}
+                        onClick={handleLogin}
                     >
                         LET'S VOTE
                     </button>

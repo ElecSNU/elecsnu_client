@@ -8,6 +8,7 @@ const account = {
     token: null,
     user_roll: null,
     user_data: {},
+    temp_status: [],
 
     // THUNKS
     login: thunk(async (actions, { email, password }) => {
@@ -21,11 +22,14 @@ const account = {
             .then(async (res) => {
                 // console.log(res.user.uid);
                 await actions.setToken(res.user.uid);
-                return true;
+                actions.setTempStatus([
+                    true,
+                    'Logged in successfully!',
+                ]);
             })
             .catch((e) => {
                 console.log(e);
-                return false;
+                actions.setTempStatus([false, e.message]);
             });
     }),
     passwordless_login: thunk(
@@ -132,6 +136,9 @@ const account = {
             state.user_roll = roll_no;
         }
     ),
+    setTempStatus: action((state, status) => {
+        state.temp_status = status;
+    }),
 };
 
 export default account;
