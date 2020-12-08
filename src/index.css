@@ -33,6 +33,25 @@ a {
     text-decoration: none;
 }
 
+*::-webkit-scrollbar {
+    width: 7.5px;
+}
+
+*::-webkit-scrollbar-track {
+    padding: 0 5px;
+    background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(216, 49, 91, 0.85);
+    border-radius: 100rem;
+    transition: all 0.4s;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent1);
+}
+
 /* Common Classes */
 
 .background-1 {
@@ -41,6 +60,10 @@ a {
 
 .background-light {
     background-color: var(--light);
+}
+
+.background-light-translucent {
+    background-color: rgba(255, 250, 255, 0.85);
 }
 
 .background-dark {
@@ -151,10 +174,23 @@ a {
     font-weight: 400;
 }
 
+.capital-text {
+    text-transform: uppercase;
+}
+
 .border-radius-15 {
     border-radius: 15px;
 }
 
 .box-shadow {
     box-shadow: 0 0 30px 10px var(--dark);
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
 }

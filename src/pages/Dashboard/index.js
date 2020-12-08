@@ -11,7 +11,6 @@ const Dashboard = () => {
     const userData = useStoreState(
         (store) => store.accountModel.user_data
     );
-
     const elections = useFirestore('elections');
 
     const [activeElections, setActiveElections] = useState(
@@ -39,6 +38,9 @@ const Dashboard = () => {
 
     const sortElections = () => {
         const currentDateTime = new Date();
+        const user_roll_no = Number(
+            window.localStorage.getItem('user_roll')
+        );
 
         setActiveElections([]);
         setPastElections([]);
@@ -46,6 +48,28 @@ const Dashboard = () => {
 
         elections.docs.forEach((election) => {
             if (
+                !election.election_eligible_voters.includes(
+                    user_roll_no
+                )
+            ) {
+                return;
+            }
+
+            if (
+                election.voters.includes(user_roll_no) ||
+                election.ended ||
+                currentDateTime >=
+                    new Date(election.election_end_time)
+            ) {
+                setPastElections((pastElections) => [
+                    ...pastElections,
+                    election,
+                ]);
+
+                if (!election.ended) {
+                    updateEnd(election.id);
+                }
+            } else if (
                 (election.started ||
                     currentDateTime >=
                         new Date(
@@ -74,19 +98,6 @@ const Dashboard = () => {
                         election,
                     ]
                 );
-            } else if (
-                election.ended ||
-                currentDateTime >=
-                    new Date(election.election_end_time)
-            ) {
-                setPastElections((pastElections) => [
-                    ...pastElections,
-                    election,
-                ]);
-
-                if (!election.ended) {
-                    updateEnd(election.id);
-                }
             } else {
                 console.log(election);
             }
@@ -105,7 +116,7 @@ const Dashboard = () => {
         >
             <div id='dashboard-content'>
                 <div className='heading-text'>
-                    Welcome, {userData.Voter_Name}{' '}
+                    Welcome, {userData.Voter_Name}
                 </div>
                 <div className='subheading-text batch-heading'>
                     {userData.Voter_Dept} {userData.Batch}

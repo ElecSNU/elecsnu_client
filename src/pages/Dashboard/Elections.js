@@ -9,7 +9,7 @@ const Elections = ({ polls, state }) => {
     return startPoll != null ? (
         <Redirect to={'/dashboard/poll/' + startPoll} />
     ) : (
-        <div id='active-elections' className='election'>
+        <div>
             <h1 className='heading-text'>
                 {state} Elections
             </h1>
@@ -24,7 +24,7 @@ const Elections = ({ polls, state }) => {
                     <div
                         className='poll border-radius-15 background-light subheading-text'
                         onClick={() => {
-                            setStartPoll('123');
+                            setStartPoll(poll.id);
                         }}
                         key={index}
                     >

@@ -48,16 +48,6 @@ const MainPage = () => {
                     path='/'
                     component={HomePage}
                 />
-                {/* <Route
-                    exact
-                    path='/login'
-                    component={Login}
-                /> */}
-                {/* <PrivateRoute
-                    exact
-                    path='/dashboard'
-                    component={Dashboard}
-                /> */}
                 <Route exact path='/login'>
                     <ParticleBackground child={Login} />
                 </Route>
@@ -67,8 +57,9 @@ const MainPage = () => {
                 <PrivateRoute
                     exact
                     path='/dashboard/poll/:election_id'
-                    component={Elections}
-                />
+                >
+                    <ParticleBackground child={Elections} />
+                </PrivateRoute>
             </Switch>
         </div>
     );

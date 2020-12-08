@@ -131,9 +131,12 @@ const account = {
     }),
     setUserData: action(
         async (state, userData, roll_no) => {
-            // console.log(userData);
+            localStorage.setItem(
+                'user_roll',
+                userData.Voter_Roll_No
+            );
             state.user_data = userData;
-            state.user_roll = roll_no;
+            state.user_roll = userData.Voter_Roll_No;
         }
     ),
     setTempStatus: action((state, status) => {
