@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStoreState } from 'easy-peasy';
+import { fire_store } from '../../configs/firebase/config';
+import useFirestore from '../../hooks/useFirestore';
 
 import './Dashboard.css';
 
@@ -10,45 +12,91 @@ const Dashboard = () => {
         (store) => store.accountModel.user_data
     );
 
-    const [activeElections, setActiveElections] = useState([
-        {
-            Election_Id:
-                'Student Council Elections 2019 Active 1',
-            Election_Candidates: [],
-        },
-        {
-            Election_Id:
-                'Student Council Elections 2019 Active 2',
-            Election_Candidates: [],
-        },
-    ]);
-    const [pastElections, setPastElections] = useState([
-        {
-            Election_Id:
-                'Student Council Elections 2019 Past 1',
-            Election_Candidates: [],
-        },
-        {
-            Election_Id:
-                'Student Council Elections 2019 Past 2',
-            Election_Candidates: [],
-        },
-    ]);
+    const elections = useFirestore('elections');
+
+    const [activeElections, setActiveElections] = useState(
+        []
+    );
+
+    const [pastElections, setPastElections] = useState([]);
+
     const [
         upcomingElections,
         setUpcomingElections,
-    ] = useState([
-        {
-            Election_Id:
-                'Student Council Elections 2019 Upcoming 1',
-            Election_Candidates: [],
-        },
-        {
-            Election_Id:
-                'Student Council Elections 2019 Upcoming 2',
-            Election_Candidates: [],
-        },
-    ]);
+    ] = useState([]);
+
+    const updateStart = async (doc) => {
+        fire_store.collection('elections').doc(doc).update({
+            started: true,
+        });
+    };
+
+    const updateEnd = async (doc) => {
+        fire_store.collection('elections').doc(doc).update({
+            ended: true,
+        });
+    };
+
+    const sortElections = () => {
+        const currentDateTime = new Date();
+
+        setActiveElections([]);
+        setPastElections([]);
+        setUpcomingElections([]);
+
+        elections.docs.forEach((election) => {
+            if (
+                (election.started ||
+                    currentDateTime >=
+                        new Date(
+                            election.election_start_time
+                        )) &&
+                !election.ended &&
+                currentDateTime <
+                    new Date(election.election_end_time)
+            ) {
+                setActiveElections((activeElections) => [
+                    ...activeElections,
+                    election,
+                ]);
+
+                if (!election.started) {
+                    updateStart(election.id);
+                }
+            } else if (
+                !election.started &&
+                currentDateTime <
+                    new Date(election.election_start_time)
+            ) {
+                setUpcomingElections(
+                    (upcomingElections) => [
+                        ...upcomingElections,
+                        election,
+                    ]
+                );
+            } else if (
+                election.ended ||
+                currentDateTime >=
+                    new Date(election.election_end_time)
+            ) {
+                setPastElections((pastElections) => [
+                    ...pastElections,
+                    election,
+                ]);
+
+                if (!election.ended) {
+                    updateEnd(election.id);
+                }
+            } else {
+                console.log(election);
+            }
+        });
+    };
+
+    useEffect(() => {
+        sortElections();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [elections.docs]);
 
     return (
         <div

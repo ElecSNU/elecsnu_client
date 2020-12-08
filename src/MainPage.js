@@ -66,7 +66,7 @@ const MainPage = () => {
                 </PrivateRoute>
                 <PrivateRoute
                     exact
-                    path='/poll/:election_id'
+                    path='/dashboard/poll/:election_id'
                     component={Elections}
                 />
             </Switch>

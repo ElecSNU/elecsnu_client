@@ -1,7 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import { toast } from 'react-toastify';
-import { Redirect } from 'react-router-dom';
 import useLoader from '../../hooks/useLoader';
 
 import './AuthSide.css';
@@ -19,8 +18,6 @@ const AuthSide = ({
     const loginStatus = useStoreState(
         (store) => store.accountModel.temp_status
     );
-
-    const [loggedIn, setLoggedIn] = useState(false);
 
     const loginAction = useStoreActions(
         (actions) => actions.accountModel.login
@@ -49,12 +46,10 @@ const AuthSide = ({
 
             if (loginStatus[0]) {
                 toast.success(loginStatus[1]);
-                setLoggedIn(true);
 
                 window.location.pathname = '/';
             } else {
                 toast.error(loginStatus[1]);
-                setLoggedIn(false);
             }
         }
 
@@ -63,9 +58,6 @@ const AuthSide = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loginStatus]);
 
-    // if (loggedIn) {
-    //     return <Redirect to='/' />;
-    // } else
     return (
         <section id='auth-side'>
             <PasswordLess

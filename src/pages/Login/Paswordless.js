@@ -3,7 +3,7 @@ import Quagga from 'quagga';
 import { toast } from 'react-toastify';
 import { useStoreActions } from 'easy-peasy';
 
-import useFirestore from '../../hooks/useFirstore';
+import useFirestore from '../../hooks/useFirestore';
 
 import './PasswordLess.css';
 

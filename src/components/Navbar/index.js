@@ -16,6 +16,7 @@ const Navbar = () => {
     let userLoggedIn = window.localStorage.getItem('token');
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         userLoggedIn = window.localStorage.getItem('token');
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
