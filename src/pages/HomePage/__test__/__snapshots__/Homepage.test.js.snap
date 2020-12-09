@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests the rendering of the page 1`] = `
+<div
+  id="home"
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="voting-banner"
+  >
+    <h1>
+      Let's make voting fun!
+    </h1>
+    <button
+      className="submit-button"
+    >
+      Vote Now!
+    </button>
+  </div>
+  <div
+    className="home-art"
+  >
+    <img
+      alt="home-art"
+      src="home-art.svg"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders the without crashing 1`] = `
+<div
+  id="home"
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="voting-banner"
+  >
+    <h1>
+      Let's make voting fun!
+    </h1>
+    <button
+      className="submit-button"
+    >
+      Vote Now!
+    </button>
+  </div>
+  <div
+    className="home-art"
+  >
+    <img
+      alt="home-art"
+      src="home-art.svg"
+    />
+  </div>
+</div>
+`;

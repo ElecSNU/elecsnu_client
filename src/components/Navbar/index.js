@@ -14,10 +14,11 @@ const Navbar = () => {
     );
 
     return (
-        <div id='navbar'>
+        <div data-testid = "navbar" id='navbar'>
             <div className='brand'>
                 <NavLink
-                    className='normal-text logout'
+                    
+                    className='normal-text logdata-testid = "ElecSNU"out'
                     to='/'
                 >
                     ElecSNU
