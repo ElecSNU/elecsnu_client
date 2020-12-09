@@ -1,5 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useStoreActions, useStoreState } from 'easy-peasy';
+import { toast } from 'react-toastify';
+import useLoader from '../../hooks/useLoader';
 
 import './AuthSide.css';
 
@@ -11,8 +13,10 @@ const AuthSide = ({
     showPasswordless,
     setShowPasswordless,
 }) => {
-    const loggedIn = useStoreState(
-        (store) => store.accountModel.user_logged_in
+    const showLoader = useLoader();
+
+    const loginStatus = useStoreState(
+        (store) => store.accountModel.temp_status
     );
 
     const loginAction = useStoreActions(
@@ -26,6 +30,7 @@ const AuthSide = ({
     const pass = useRef();
 
     const handleLogin = async () => {
+        showLoader(true);
         loginAction({
             email: email.current.value,
             password: pass.current.value,
@@ -34,13 +39,24 @@ const AuthSide = ({
 
     useEffect(() => {
         const unsubscribe = checkLoginAction();
+        showLoader(false);
 
-        if (loggedIn) {
-            window.location.pathname = '/';
+        if (loginStatus != null) {
+            console.log('hey');
+
+            if (loginStatus[0]) {
+                toast.success(loginStatus[1]);
+
+                window.location.pathname = '/';
+            } else {
+                toast.error(loginStatus[1]);
+            }
         }
 
         return unsubscribe;
-    });
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loginStatus]);
 
     return (
         <section id='auth-side'>
@@ -74,7 +90,7 @@ const AuthSide = ({
                 <div className='submit-container'>
                     <button
                         className='submit-button'
-                        onClick={() => handleLogin()}
+                        onClick={handleLogin}
                     >
                         LET'S VOTE
                     </button>

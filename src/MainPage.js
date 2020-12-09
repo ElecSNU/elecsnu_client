@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useStoreActions } from 'easy-peasy';
+import useLoader from './hooks/useLoader';
 
 import PrivateRoute from './components/PrivateRoute';
 
@@ -27,6 +28,12 @@ const MainPage = () => {
         (actions) => actions.accountModel.check_login
     );
 
+    const showLoader = useLoader();
+
+    useEffect(() => {
+        showLoader(false);
+    });
+
     useEffect(() => {
         checkLoginAction();
 
@@ -41,16 +48,6 @@ const MainPage = () => {
                     path='/'
                     component={HomePage}
                 />
-                {/* <Route
-                    exact
-                    path='/login'
-                    component={Login}
-                /> */}
-                {/* <PrivateRoute
-                    exact
-                    path='/dashboard'
-                    component={Dashboard}
-                /> */}
                 <Route exact path='/login'>
                     <ParticleBackground child={Login} />
                 </Route>
@@ -59,9 +56,10 @@ const MainPage = () => {
                 </PrivateRoute>
                 <PrivateRoute
                     exact
-                    path='/poll/:election_id'
-                    component={Elections}
-                />
+                    path='/dashboard/poll/:election_id'
+                >
+                    <ParticleBackground child={Elections} />
+                </PrivateRoute>
             </Switch>
         </div>
     );

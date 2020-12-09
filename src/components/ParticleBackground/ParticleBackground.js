@@ -49,7 +49,7 @@ const ParticleBackground = ({
                     detectRetina: true,
                 }}
             />
-            <Component />
+            <Component {...rest} />
         </>
     );
 };
