@@ -4,11 +4,10 @@ import { useStoreActions } from 'easy-peasy';
 import useLoader from './hooks/useLoader';
 
 import PrivateRoute from './components/PrivateRoute';
+import ParticleBackground from './components/ParticleBackground/ParticleBackground';
 
-const ParticleBackground = React.lazy(() =>
-    import(
-        './components/ParticleBackground/ParticleBackground'
-    )
+const Capabilities = React.lazy(() =>
+    import('./pages/Capabilities/Capabilities')
 );
 const Login = React.lazy(() =>
     import('./pages/Login/Login')
@@ -50,6 +49,11 @@ const MainPage = () => {
                     path='/'
                     component={HomePage}
                 />
+                <Route exact path='/capabilities'>
+                    <ParticleBackground
+                        child={Capabilities}
+                    />
+                </Route>
                 <Route exact path='/login'>
                     <ParticleBackground child={Login} />
                 </Route>

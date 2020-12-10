@@ -23,11 +23,11 @@ const Navbar = () => {
     }, [loggedIn]);
 
     return (
-        <div data-testid = "navbar" id='navbar'>
+        <div data-testid='navbar' id='navbar'>
             <div className='brand'>
                 <NavLink
-                    
-                    className='normal-text logdata-testid = "ElecSNU"out'
+                    className='normal-text logout'
+                    data-testid='ElecSNU'
                     to='/'
                 >
                     ElecSNU
@@ -36,9 +36,9 @@ const Navbar = () => {
             <div className='links'>
                 <NavLink
                     className='normal-text'
-                    to='/features'
+                    to='/capabilities'
                 >
-                    Features
+                    Capabilities
                 </NavLink>
                 <NavLink
                     className='normal-text'
