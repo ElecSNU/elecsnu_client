@@ -71,7 +71,7 @@ const account = {
         async (actions, target) => {
             const uid = target.payload;
             fire_store
-                .collection('voter_uid_ref')
+                .collection('voters_uid_ref')
                 .onSnapshot((snap) => {
                     let roll_no = null;
                     snap.forEach((doc) => {

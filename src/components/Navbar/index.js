@@ -26,7 +26,7 @@ const Navbar = () => {
         <div data-testid='navbar' id='navbar'>
             <div className='brand'>
                 <NavLink
-                    className='normal-text logout'
+                    className='normal-text logout foreground-1'
                     data-testid='ElecSNU'
                     to='/'
                 >
@@ -39,12 +39,14 @@ const Navbar = () => {
                     to='/capabilities'
                 >
                     Capabilities
+                    <div className='underline'></div>
                 </NavLink>
                 <NavLink
                     className='normal-text'
                     to='/about-us'
                 >
                     About Us
+                    <div className='underline'></div>
                 </NavLink>
                 {userLoggedIn ? (
                     <NavLink
@@ -52,6 +54,7 @@ const Navbar = () => {
                         to='/dashboard'
                     >
                         Dashboard
+                        <div className='underline'></div>
                     </NavLink>
                 ) : (
                     <NavLink
@@ -59,6 +62,7 @@ const Navbar = () => {
                         to='/login'
                     >
                         Login
+                        <div className='underline'></div>
                     </NavLink>
                 )}
                 {userLoggedIn && (
@@ -68,6 +72,7 @@ const Navbar = () => {
                         onClick={() => logoutAction()}
                     >
                         Logout
+                        <div className='underline'></div>
                     </NavLink>
                 )}
             </div>

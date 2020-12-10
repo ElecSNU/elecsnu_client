@@ -1,12 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
 import './Capabilities.css';
+
+import VoterIcon from '../../assets/images/voter.png';
+import SecurityIcon from '../../assets/images/security.png';
+import IntegrityIcon from '../../assets/images/integrity.png';
+import AdminIcon from '../../assets/images/admin.png';
 
 const Capabilities = () => {
     const capabilities = [
         {
             id: 'integrity',
+            icon: IntegrityIcon,
             heading: 'Voting Integrity',
             subheading:
                 'Trust the results of your votes and elections',
@@ -25,6 +29,7 @@ const Capabilities = () => {
         },
         {
             id: 'security',
+            icon: SecurityIcon,
             heading: 'Security',
             subheading:
                 "Ensure the election's security and peace of mind.",
@@ -43,6 +48,7 @@ const Capabilities = () => {
         },
         {
             id: 'admin',
+            icon: AdminIcon,
             heading: 'Admin Experience',
             subheading:
                 'Manage the voting process with ease',
@@ -71,6 +77,7 @@ const Capabilities = () => {
         },
         {
             id: 'voter',
+            icon: VoterIcon,
             heading: 'Voter Experience',
             subheading:
                 'Offer voters a straightforward, pleasant experience',
@@ -101,7 +108,7 @@ const Capabilities = () => {
     ];
 
     return (
-        <div id='capabilities'>
+        <div id='capabilities-page'>
             <div className='capabilities-container background-light-translucent border-radius-15 box-shadow'>
                 <h1 className='heading-text main-heading foreground-back capital-text center-text'>
                     Capabilities
@@ -110,11 +117,18 @@ const Capabilities = () => {
                     {capabilities.map(
                         (capability, index) => (
                             <a
-                                className='capability-link'
                                 key={index}
+                                className='capability-link'
                                 href={`#${capability.id}`}
                             >
-                                <img src='' alt='' />
+                                <div className='img-container background-1'>
+                                    <img
+                                        src={
+                                            capability.icon
+                                        }
+                                        alt=''
+                                    />
+                                </div>
                                 <h1 className='heading-text foreground-accent1 capital-text center-text'>
                                     {capability.heading}
                                 </h1>
@@ -149,7 +163,9 @@ const Capabilities = () => {
                         <ul className='capability-points'>
                             {capability.points.map(
                                 (capabilityPoint, i) => (
-                                    <li key={i}>
+                                    <li
+                                        key={`${index}-${i}`}
+                                    >
                                         <div className='subheading-text'>
                                             {
                                                 capabilityPoint.heading

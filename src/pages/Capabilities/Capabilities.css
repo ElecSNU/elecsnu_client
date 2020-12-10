@@ -1,4 +1,4 @@
-#capabilities {
+#capabilities-page {
     height: 100%;
     width: 100%;
     display: grid;
@@ -17,7 +17,7 @@
     align-items: center;
 }
 
-#capabilities .main-heading {
+#capabilities-page .main-heading {
     font-size: 3.5rem;
 }
 
@@ -26,6 +26,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.capability-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.capability-link .img-container {
+    padding: 2.25rem;
+    margin-bottom: 1.5rem;
+    background-color: #004aad;
+    border-radius: 100rem;
+}
+
+.capability-link img {
+    margin: 0;
+    width: 7.5rem;
 }
 
 .capability {

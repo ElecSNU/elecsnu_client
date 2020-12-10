@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { useStoreActions } from 'easy-peasy';
 import useLoader from './hooks/useLoader';
 
 import PrivateRoute from './components/PrivateRoute';
@@ -8,6 +7,9 @@ import ParticleBackground from './components/ParticleBackground/ParticleBackgrou
 
 const Capabilities = React.lazy(() =>
     import('./pages/Capabilities/Capabilities')
+);
+const AboutUs = React.lazy(() =>
+    import('./pages/AboutUs/AboutUs')
 );
 const Login = React.lazy(() =>
     import('./pages/Login/Login')
@@ -26,20 +28,11 @@ const Voting = React.lazy(() =>
 );
 
 const MainPage = () => {
-    const checkLoginAction = useStoreActions(
-        (actions) => actions.accountModel.check_login
-    );
-
     const showLoader = useLoader();
 
     useEffect(() => {
         showLoader(false);
     });
-
-    useEffect(() => {
-        // checkLoginAction();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <div id='main-page'>
@@ -53,6 +46,9 @@ const MainPage = () => {
                     <ParticleBackground
                         child={Capabilities}
                     />
+                </Route>
+                <Route exact path='/about-us'>
+                    <ParticleBackground child={AboutUs} />
                 </Route>
                 <Route exact path='/login'>
                     <ParticleBackground child={Login} />
@@ -69,6 +65,12 @@ const MainPage = () => {
                 <PrivateRoute
                     exact
                     path='/dashboard/poll/:election_id/voting'
+                >
+                    <Voting />
+                </PrivateRoute>
+                <PrivateRoute
+                    exact
+                    path='/dashboard/poll/:election_id/voting/detected'
                 >
                     <Voting />
                 </PrivateRoute>

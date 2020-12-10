@@ -1,0 +1,247 @@
+[
+    {
+        "election_start_time": "2020-12-12T00:18",
+        "election_end_time": "2020-12-14T00:18",
+        "started": false,
+        "election_candidates": [
+            {
+                "candidate_name": "Kaustubh Rai",
+                "candidate_group": "CSE,Batch2022",
+                "candidate_gender": "Male",
+                "candidate_roll_no": "1810110102",
+                "candidate_manifesto": "https://firebasestorage.googleapis.com/v0/b/elecsnu.appspot.com/o/Q2UYGmNq7WTbexU9v4IZ%2FKaustubh%20Rai_Manifesto%20-%20Kaustubh%20Rai.pdf?alt=media&token=becec072-84ac-4aca-b5e3-799bd71c3953"
+            },
+            {
+                "candidate_group": "CSE,Batch2022",
+                "candidate_name": "Megha Agarwal",
+                "candidate_roll_no": "1810110129",
+                "candidate_gender": "Female",
+                "candidate_manifesto": "https://firebasestorage.googleapis.com/v0/b/elecsnu.appspot.com/o/Q2UYGmNq7WTbexU9v4IZ%2FExperience%20-%20Megha%20Agarwal.pdf?alt=media&token=e68ca772-0f72-4a4c-b845-78dd770c00d4"
+            }
+        ],
+        "ended": false,
+        "voters": [1010110734],
+        "election_name": "CSE 2022 Class Representative",
+        "election_votes": [
+            {
+                "groups": "CSE,Batch2022",
+                "voter_gender": "Male"
+            }
+        ],
+        "election_results": { "public": true },
+        "election_eligible_voters": [
+            1810110088,
+            1210110015,
+            1310110201,
+            1010110669,
+            1010110108,
+            1210110956,
+            1310110382,
+            1610110632,
+            1610110936,
+            1710110976,
+            1910110734,
+            1710110192,
+            1810110747,
+            1410110143,
+            1410110728,
+            1110110562,
+            1310110648,
+            1710110405,
+            1210110956,
+            1810110623,
+            1310110670,
+            1510110063,
+            1510110001,
+            1010110734,
+            1410110381,
+            1710110172,
+            1710110686,
+            1910110957
+        ]
+    },
+    {
+        "election_name": "CSE 2022 Class Representative",
+        "election_end_time": "2020-12-04T00:18",
+        "election_eligible_voters": [
+            1810110088,
+            1210110015,
+            1310110201,
+            1010110669,
+            1010110108,
+            1210110956,
+            1310110382,
+            1610110632,
+            1610110936,
+            1710110976,
+            1910110734,
+            1710110192,
+            1810110747,
+            1410110143,
+            1410110728,
+            1110110562,
+            1310110648,
+            1710110405,
+            1210110956,
+            1810110623,
+            1310110670,
+            1510110063,
+            1510110001,
+            1010110734,
+            1410110381,
+            1710110172,
+            1710110686,
+            1910110957
+        ],
+        "ended": true,
+        "started": true,
+        "election_candidates": [
+            {
+                "candidate_gender": "Male",
+                "candidate_manifesto": "https://firebasestorage.googleapis.com/v0/b/elecsnu.appspot.com/o/Q2UYGmNq7WTbexU9v4IZ%2FKaustubh%20Rai_Manifesto%20-%20Kaustubh%20Rai.pdf?alt=media&token=becec072-84ac-4aca-b5e3-799bd71c3953",
+                "candidate_roll_no": "1810110102",
+                "candidate_name": "Kaustubh Rai",
+                "candidate_group": "CSE,Batch2022"
+            },
+            {
+                "candidate_name": "Megha Agarwal",
+                "candidate_roll_no": "1810110129",
+                "candidate_gender": "Female",
+                "candidate_manifesto": "https://firebasestorage.googleapis.com/v0/b/elecsnu.appspot.com/o/Q2UYGmNq7WTbexU9v4IZ%2FExperience%20-%20Megha%20Agarwal.pdf?alt=media&token=e68ca772-0f72-4a4c-b845-78dd770c00d4",
+                "candidate_group": "CSE,Batch2022"
+            }
+        ],
+        "election_start_time": "2020-12-02T00:18",
+        "voters": [1010110734],
+        "election_votes": [
+            {
+                "voter_gender": "Male",
+                "groups": "CSE,Batch2022"
+            }
+        ],
+        "election_results": { "public": true }
+    },
+    {
+        "election_eligible_voters": [
+            1810110088,
+            1210110015,
+            1310110201,
+            1010110669,
+            1010110108,
+            1210110956,
+            1310110382,
+            1610110632,
+            1610110936,
+            1710110976,
+            1910110734,
+            1710110192,
+            1810110747,
+            1410110143,
+            1410110728,
+            1110110562,
+            1310110648,
+            1710110405,
+            1210110956,
+            1810110623,
+            1310110670,
+            1510110063,
+            1510110001,
+            1010110734,
+            1410110381,
+            1710110172,
+            1710110686,
+            1910110957
+        ],
+        "election_votes": [
+            {
+                "groups": "CSE,Batch2022",
+                "voter_gender": "Male"
+            }
+        ],
+        "election_start_time": "2020-12-02T00:18",
+        "voters": [1010110734],
+        "ended": false,
+        "election_end_time": "2020-12-14T00:18",
+        "election_results": { "public": true },
+        "started": true,
+        "election_name": "CSE 2022 Class Representative 1",
+        "election_candidates": [
+            {
+                "candidate_manifesto": "https://firebasestorage.googleapis.com/v0/b/elecsnu.appspot.com/o/Q2UYGmNq7WTbexU9v4IZ%2FKaustubh%20Rai_Manifesto%20-%20Kaustubh%20Rai.pdf?alt=media&token=becec072-84ac-4aca-b5e3-799bd71c3953",
+                "candidate_group": "CSE,Batch2022",
+                "candidate_roll_no": "1810110102",
+                "candidate_gender": "Male",
+                "candidate_name": "Kaustubh Rai"
+            },
+            {
+                "candidate_roll_no": "1810110129",
+                "candidate_group": "CSE,Batch2022",
+                "candidate_name": "Megha Agarwal",
+                "candidate_manifesto": "https://firebasestorage.googleapis.com/v0/b/elecsnu.appspot.com/o/Q2UYGmNq7WTbexU9v4IZ%2FExperience%20-%20Megha%20Agarwal.pdf?alt=media&token=e68ca772-0f72-4a4c-b845-78dd770c00d4",
+                "candidate_gender": "Female"
+            }
+        ]
+    },
+    {
+        "election_start_time": "2020-12-02T00:18",
+        "election_eligible_voters": [
+            1810110088,
+            1210110015,
+            1310110201,
+            1010110669,
+            1010110108,
+            1210110956,
+            1310110382,
+            1610110632,
+            1610110936,
+            1710110976,
+            1910110734,
+            1710110192,
+            1810110747,
+            1410110143,
+            1410110728,
+            1110110562,
+            1310110648,
+            1710110405,
+            1210110956,
+            1810110623,
+            1310110670,
+            1510110063,
+            1510110001,
+            1010110734,
+            1410110381,
+            1710110172,
+            1710110686,
+            1910110957
+        ],
+        "election_votes": [
+            {
+                "groups": "CSE,Batch2022",
+                "voter_gender": "Male",
+                "voter_choice": 1
+            }
+        ],
+        "started": true,
+        "election_end_time": "2020-12-04T00:18",
+        "election_name": "CSE 2022 Class Representative",
+        "election_results": { "public": true },
+        "election_candidates": [
+            {
+                "candidate_group": "CSE,Batch2022",
+                "candidate_name": "Kaustubh Rai",
+                "candidate_gender": "Male",
+                "candidate_roll_no": "1810110102",
+                "candidate_manifesto": "https://firebasestorage.googleapis.com/v0/b/elecsnu.appspot.com/o/Q2UYGmNq7WTbexU9v4IZ%2FKaustubh%20Rai_Manifesto%20-%20Kaustubh%20Rai.pdf?alt=media&token=becec072-84ac-4aca-b5e3-799bd71c3953"
+            },
+            {
+                "candidate_roll_no": "1810110129",
+                "candidate_group": "CSE,Batch2022",
+                "candidate_name": "Megha Agarwal",
+                "candidate_gender": "Female",
+                "candidate_manifesto": "https://firebasestorage.googleapis.com/v0/b/elecsnu.appspot.com/o/Q2UYGmNq7WTbexU9v4IZ%2FExperience%20-%20Megha%20Agarwal.pdf?alt=media&token=e68ca772-0f72-4a4c-b845-78dd770c00d4"
+            }
+        ],
+        "voters": [1010110734],
+        "ended": true
+    }
+]

@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import useLoader from '../../hooks/useLoader';
 
 import ParticleBackground from '../../components/ParticleBackground/ParticleBackground';
 
 import './Voting.css';
+import FaceRecog from './FaceRecog';
 
-const FaceRecog = React.lazy(() => import('./FaceRecog'));
-const ErrorPage = React.lazy(() => import('./FaceRecog'));
+const FaceDetect = React.lazy(() => import('./FaceDetect'));
+const ErrorPage = React.lazy(() => import('./FaceDetect'));
 
 const VotingPage = () => {
-    const showLoader = useLoader();
+    const face_detected = window.location.pathname.split(
+        '/'
+    )[5];
+    console.log(face_detected);
 
     // 0 ==> PROCESSING
     // 1 ==> SUCCESSFULL
@@ -24,14 +26,13 @@ const VotingPage = () => {
             id='voting-page'
             className='background-light-translucent border-radius-15 box-shadow'
         >
-            {faceRecogStatus === 0 ? (
-                <FaceRecog
-                    setFaceRecogStatus={setFaceRecogStatus}
-                    faceRecogStatus={faceRecogStatus}
-                    showLoader={showLoader}
-                />
+            {faceRecogStatus === 0 &&
+            face_detected === undefined ? (
+                <FaceDetect />
+            ) : face_detected === 'detected' ? (
+                <FaceRecog />
             ) : faceRecogStatus === 1 ? (
-                <></>
+                <div>Okay then</div>
             ) : (
                 <ErrorPage />
             )}
