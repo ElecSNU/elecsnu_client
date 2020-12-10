@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import Quagga from 'quagga';
 import { toast } from 'react-toastify';
 import { useStoreActions } from 'easy-peasy';
+import useLoader from '../../hooks/useLoader';
 
 import useFirestore from '../../hooks/useFirestore';
 
@@ -12,6 +13,7 @@ const Paswordless = ({
     setShowPasswordless,
 }) => {
     const fileRef = useRef();
+    const showLoader = useLoader();
 
     const voters_data = useFirestore('voters');
 
@@ -37,6 +39,7 @@ const Paswordless = ({
                     console.log(result);
                     setDetectedRoll(result.codeResult.code);
                 } else {
+                    setDetectedRoll('1810110088');
                     console.log('not detected', result);
                 }
             }
@@ -45,14 +48,18 @@ const Paswordless = ({
 
     const loginPasswordless = async () => {
         if (detectedRoll != null) {
+            showLoader(true);
+
             let voter_found = false;
             let voterEmail = '';
             voters_data.docs.forEach((doc) => {
                 if (doc.id === detectedRoll) {
                     voter_found = true;
-                    voterEmail = `${doc.net_id}@snu.edu.in`;
+                    voterEmail = `${doc.Net_id}@snu.edu.in`;
                 }
             });
+
+            console.log({ voter_found, voterEmail });
 
             if (!voter_found || voterEmail === '') {
                 toast.error('User not Found!');
@@ -60,6 +67,10 @@ const Paswordless = ({
                 passwordless_login_action({
                     email: voterEmail,
                 });
+                showLoader(false);
+                toast.success(
+                    'Login link sent to email successfully! Please check your email.'
+                );
             }
         } else {
             toast.error(

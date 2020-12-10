@@ -130,6 +130,18 @@ const account = {
                 'user_roll',
                 userData.Voter_Roll_No
             );
+            localStorage.setItem(
+                'voter_gender',
+                userData.Voter_Gender
+            );
+            localStorage.setItem(
+                'voter_dept',
+                userData.Voter_Dept
+            );
+            localStorage.setItem(
+                'voter_batch',
+                userData.Batch
+            );
             state.user_data = userData;
             state.user_roll = userData.Voter_Roll_No;
         }

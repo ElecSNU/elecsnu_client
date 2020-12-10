@@ -9,7 +9,7 @@ import './Elections.css';
 
 const Elections = () => {
     const params = useParams();
-    const electionDocs = useFirestore('elections').docs;
+    const electionDocs = useFirestore('newelections').docs;
 
     const [electionDetails, setElectionDetails] = useState(
         {}
@@ -25,6 +25,9 @@ const Elections = () => {
     const [electionState, setElectionState] = useState(2);
 
     const getElectionDetails = () => {
+        const userRoll = window.localStorage.getItem(
+            'user_roll'
+        );
         electionDocs.forEach((election) => {
             if (election.id === params.election_id) {
                 let candidateNames = [];
@@ -44,7 +47,10 @@ const Elections = () => {
                     setElectionState(2);
                 } else if (
                     election.started &&
-                    !election.ended
+                    !election.ended &&
+                    !election.voters.includes(
+                        Number(userRoll)
+                    )
                 ) {
                     setElectionState(0);
                 } else {
@@ -119,7 +125,7 @@ const Elections = () => {
                     <Link
                         className='submit-button background-accent1'
                         onClick={() => {}}
-                        to='/'
+                        to={`/dashboard/results/${params.election_id}`}
                     >
                         RESULTS
                     </Link>

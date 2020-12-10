@@ -11,6 +11,7 @@
         "emotion": "^9.2.4",
         "face-api.js": "^0.22.2",
         "firebase": "^7.23.0",
+        "npm": "^6.14.9",
         "quagga": "^0.12.1",
         "react": "^17.0.1",
         "react-custom-share": "^0.4.8",
@@ -22,6 +23,7 @@
         "react-test-renderer": "^17.0.1",
         "react-toastify": "^6.1.0",
         "react-webcam": "^5.2.2",
+        "recharts": "^1.8.5",
         "uuid": "^8.3.2",
         "web-vitals": "^0.2.4"
     },
@@ -30,7 +32,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "publish": "node publish.js"
+        "publish_script": "node publish.js"
     },
     "eslintConfig": {
         "extends": [

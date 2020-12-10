@@ -10,36 +10,40 @@ const FaceRecog = () => {
         const url = await fire_storage
             .ref('face_image')
             .getDownloadURL();
+
         return url;
     };
 
     const tryFaceRecog = async () => {
         showLoader(true);
-        const url = getImageURL();
+        const url = await getImageURL();
         const roll_no = window.localStorage.getItem(
             'user_roll'
         );
 
-        // let prediction = await fetch(
-        //     // 'https://cors-anywhere.herokuapp.com/' +
-        //     'http://24001a0548d5.ngrok.io',
-        //     {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             URL: url,
-        //             ROLLNO: roll_no,
-        //         }),
-        //     }
-        // );
+        console.log(url);
+        console.log(roll_no);
 
-        // let message = await prediction.json();
+        let prediction = await fetch(
+            // 'https://cors-anywhere.herokuapp.com/' +
+            'http://127.0.0.1:5000/predict',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    URL: url,
+                    ROLLNO: roll_no,
+                }),
+            }
+        );
+
+        let message = await prediction.json();
 
         showLoader(false);
 
-        if (true) {
+        if (message['message']) {
             const elecId = window.location.pathname.split(
                 '/'
             )[3];

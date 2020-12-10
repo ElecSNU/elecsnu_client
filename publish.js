@@ -1,4 +1,5 @@
 const { exec } = require('child_process');
+const npm = require('npm');
 
 const Reset = '\x1b[0m';
 const Bright = '\x1b[1m';
@@ -29,17 +30,8 @@ const BgWhite = '\x1b[47m';
 const run_test = () => {
     console.log('Running Test scripts');
 
-    exec('npm run test', (error, stdout, stderr) => {
-        if (error) {
-            console.log(`error: ${error.message}`);
-            process.exit();
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`);
-            process.exit();
-        }
-        console.log(`stdout: ${stdout}`);
-    });
+    // exec('npm test');
+    npm.command.run('test');
 };
 
 const run_build = () => {
@@ -120,7 +112,10 @@ const run_deploy = () => {
 };
 
 const main = () => {
-    run_test();
+    // run_test();
+    run_build();
+    run_github();
+    run_deploy();
 };
 
 main();

@@ -15,12 +15,13 @@ import 'firebase/storage';
 // };
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyAMCgqzA-YOkFvsojV5JuQ8T1jEb3uLQgI',
-    authDomain: 'swe-2-42cc3.firebaseapp.com',
-    projectId: 'swe-2-42cc3',
-    storageBucket: 'swe-2-42cc3.appspot.com',
-    messagingSenderId: '263749183114',
-    appId: '1:263749183114:web:6a62633739b0efa3226f73',
+    apiKey: 'AIzaSyD4GUzGWvZyd-lRTrLapit5hSAFuG1EaYw',
+    authDomain: 'swe-testing-c9c07.firebaseapp.com',
+    databaseURL: 'https://swe-testing-c9c07.firebaseio.com',
+    projectId: 'swe-testing-c9c07',
+    storageBucket: 'swe-testing-c9c07.appspot.com',
+    messagingSenderId: '994917797834',
+    appId: '1:994917797834:web:a36834979bdcb325c60933',
 };
 
 const fire_app = firebase.initializeApp(firebaseConfig);

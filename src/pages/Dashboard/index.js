@@ -11,7 +11,7 @@ const Dashboard = () => {
     const userData = useStoreState(
         (store) => store.accountModel.user_data
     );
-    const elections = useFirestore('elections');
+    const elections = useFirestore('newelections');
 
     const [activeElections, setActiveElections] = useState(
         []
@@ -25,15 +25,21 @@ const Dashboard = () => {
     ] = useState([]);
 
     const updateStart = async (doc) => {
-        fire_store.collection('elections').doc(doc).update({
-            started: true,
-        });
+        fire_store
+            .collection('newelections')
+            .doc(doc)
+            .update({
+                started: true,
+            });
     };
 
     const updateEnd = async (doc) => {
-        fire_store.collection('elections').doc(doc).update({
-            ended: true,
-        });
+        fire_store
+            .collection('newelections')
+            .doc(doc)
+            .update({
+                ended: true,
+            });
     };
 
     const sortElections = () => {

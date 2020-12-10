@@ -36,14 +36,7 @@ const FaceDetect = () => {
             new faceapi.TinyFaceDetectorOptions()
         );
         if (detections2.length === 1) {
-            if (capture())
-                setTimeout(() => {
-                    const elecId = window.location.pathname.split(
-                        '/'
-                    )[3];
-
-                    window.location.pathname = `/dashboard/poll/${elecId}/voting/detected`;
-                }, 500);
+            capture();
 
             videoRef.current.pause();
         }
@@ -72,6 +65,14 @@ const FaceDetect = () => {
                         'imageUploaded',
                         'y'
                     );
+                    console.log('DONE');
+                    setTimeout(() => {
+                        const elecId = window.location.pathname.split(
+                            '/'
+                        )[3];
+
+                        window.location.pathname = `/dashboard/poll/${elecId}/voting/detected`;
+                    }, 500);
                 });
             // console.log(imageLink);
             return true;

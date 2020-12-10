@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useFirestore from '../../hooks/useFirestore';
 import { fire_store } from '../../configs/firebase/config';
-import { useStoreState, useStoreActions } from 'easy-peasy';
+import { toast } from 'react-toastify';
 import useLoader from '../../hooks/useLoader';
 
 import Share from './Share';
@@ -10,13 +10,7 @@ import './Choosing.css';
 
 const Choosing = ({ candidates }) => {
     const [chosen, setChosen] = useState(0);
-    const electionDocs = useFirestore('elections').docs;
-    const userData = useStoreState(
-        (store) => store.accountModel.user_data
-    );
-    const checkLogin = useStoreActions(
-        (actions) => actions.accountModel.check_login
-    );
+    const electionDocs = useFirestore('newelections').docs;
     const showLoader = useLoader();
     const [done, setDone] = useState(false);
     const [electionName, setElectionName] = useState('');
@@ -35,6 +29,15 @@ const Choosing = ({ candidates }) => {
         });
         setElectionName(electionDetails.election_name);
 
+        let userGender = window.localStorage.getItem(
+            'voter_gender'
+        );
+        let userDept = window.localStorage.getItem(
+            'voter_dept'
+        );
+        let userBatch = window.localStorage.getItem(
+            'voter_batch'
+        );
         let userRoll = window.localStorage.getItem(
             'user_roll'
         );
@@ -46,26 +49,23 @@ const Choosing = ({ candidates }) => {
         electionDetails.election_votes = [
             ...electionDetails.election_votes,
             {
-                voter_gender: userData.Voter_Gender,
-                groups: `${userData.Voter_Dept},Batch${userData.Batch}`,
+                voter_gender: userGender,
+                groups: `${userDept},Batch${userBatch}`,
                 candidate_chosen: chosen,
             },
         ];
 
         fire_store
-            .collection('elections')
+            .collection('newelections')
             .doc(electionId)
             .set(electionDetails);
 
         showLoader(false);
+
+        toast.success('Successfully casted vote!');
+
         setDone(true);
     };
-
-    useEffect(() => {
-        checkLogin();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <>
