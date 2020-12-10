@@ -6,6 +6,7 @@
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
+        "chai": "^4.2.0",
         "easy-peasy": "^4.0.1",
         "face-api.js": "^0.22.2",
         "firebase": "^7.23.0",
@@ -14,7 +15,8 @@
         "react-dom": "^17.0.1",
         "react-particles-js": "^3.4.1",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "4.0.0",
+        "react-scripts": "^4.0.0",
+        "react-test-renderer": "^17.0.1",
         "react-toastify": "^6.1.0",
         "react-webcam": "^5.2.2",
         "web-vitals": "^0.2.4"
@@ -43,5 +45,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.5"
     }
 }
