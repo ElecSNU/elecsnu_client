@@ -19,6 +19,8 @@ const AuthSide = ({
         (store) => store.accountModel.temp_status
     );
 
+    const loggedIn = window.localStorage.getItem('token');
+
     const loginAction = useStoreActions(
         (actions) => actions.accountModel.login
     );
@@ -41,9 +43,13 @@ const AuthSide = ({
         const unsubscribe = checkLoginAction();
         showLoader(false);
 
-        if (loginStatus != null) {
-            console.log('hey');
+        if (loggedIn != null) {
+            window.location.pathname = '/';
 
+            return;
+        }
+
+        if (loginStatus != null) {
             if (loginStatus[0]) {
                 toast.success(loginStatus[1]);
 

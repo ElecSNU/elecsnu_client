@@ -260,20 +260,6 @@ db.collection('elections')
         election_eligible_voters: intersection,
     });
 
-db.collection('elections')
-    .doc('5PSP9EgEr8IVlyrcKTDe')
-    .update({
-        election_eligible_voters: intersection,
-    });
-
-db.collection('elections')
-    .doc('Q2UYGmNq7WTbexU9v4IZ')
-    .update({
-        election_eligible_voters: intersection,
-    });
-
-db.collection('elections')
-    .doc('jxvkvdLS1FBGHKwJGpvQ')
-    .update({
-        election_eligible_voters: intersection,
-    });
+db.collection('elections').onSnapshot((snap) =>
+    console.log(snap.docs)
+);

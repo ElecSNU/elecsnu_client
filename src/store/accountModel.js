@@ -61,11 +61,6 @@ const account = {
     }),
     check_login: thunk(async (actions) => {
         return auth.onAuthStateChanged(async (user) => {
-            // console.log(
-            //     user
-            //         ? 'Already Logged In ' + user.uid
-            //         : 'Logged out'
-            // );
             if (user) {
                 await actions.setToken(user.uid);
             }

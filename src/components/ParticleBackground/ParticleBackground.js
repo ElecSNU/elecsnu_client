@@ -15,7 +15,7 @@ const ParticleBackground = ({
                     background: {
                         color: {
                             // value: '#1e1b18',
-                            value: '#fff',
+                            value: '#fffaff',
                         },
                         // opacity: 0.3,
                     },

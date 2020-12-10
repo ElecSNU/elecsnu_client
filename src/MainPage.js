@@ -22,6 +22,9 @@ const Dashboard = React.lazy(() =>
 const Elections = React.lazy(() =>
     import('./pages/Elections/Elections')
 );
+const Voting = React.lazy(() =>
+    import('./pages/Elections/Voting')
+);
 
 const MainPage = () => {
     const checkLoginAction = useStoreActions(
@@ -35,8 +38,7 @@ const MainPage = () => {
     });
 
     useEffect(() => {
-        checkLoginAction();
-
+        // checkLoginAction();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -59,6 +61,12 @@ const MainPage = () => {
                     path='/dashboard/poll/:election_id'
                 >
                     <ParticleBackground child={Elections} />
+                </PrivateRoute>
+                <PrivateRoute
+                    exact
+                    path='/dashboard/poll/:election_id/voting'
+                >
+                    <Voting />
                 </PrivateRoute>
             </Switch>
         </div>

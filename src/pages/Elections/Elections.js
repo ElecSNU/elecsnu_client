@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useFirestore from '../../hooks/useFirestore';
 
 import Manifesto_icon from '../../assets/images/manifesto_icon.svg';
@@ -13,6 +14,11 @@ const Elections = () => {
     const [electionDetails, setElectionDetails] = useState(
         {}
     );
+
+    const [totalCandidates, setTotalCandidates] = useState(
+        0
+    );
+
     // 0 ==> Active
     // 1 ==> Past
     // 2 ==> Upcoming
@@ -21,6 +27,18 @@ const Elections = () => {
     const getElectionDetails = () => {
         electionDocs.forEach((election) => {
             if (election.id === params.election_id) {
+                let candidateNames = [];
+                election.election_candidates.forEach(
+                    (c) => {
+                        candidateNames = [
+                            ...candidateNames,
+                            c.candidate_name,
+                        ];
+                    }
+                );
+
+                setTotalCandidates(candidateNames);
+
                 setElectionDetails(election);
                 if (!election.started) {
                     setElectionState(2);
@@ -32,6 +50,7 @@ const Elections = () => {
                 } else {
                     setElectionState(1);
                 }
+                return;
             }
         });
     };
@@ -62,41 +81,66 @@ const Elections = () => {
                         {electionDetails !== {} &&
                             electionDetails.election_candidates &&
                             electionDetails.election_candidates.map(
-                                (candidate) => (
-                                    <div
-                                        className='candidate d-flex background-1 border-radius-15'
-                                        key={
-                                            candidate.candidate_roll_no
-                                        }
-                                    >
-                                        <h2 className='candidate-name heading-text capital-text foreground-light'>
-                                            {
-                                                candidate.candidate_name
+                                (candidate) => {
+                                    return (
+                                        <div
+                                            className='candidate d-flex background-1 border-radius-15'
+                                            key={
+                                                candidate.candidate_roll_no
                                             }
-                                        </h2>
-                                        <a
-                                            href={
-                                                candidate.candidate_manifesto
-                                            }
-                                            target='__blank'
-                                            className='candidate-manifesto heading-text foreground-light'
                                         >
-                                            MANIFESTO
-                                            <img
-                                                src={
-                                                    Manifesto_icon
+                                            <h2 className='candidate-name heading-text capital-text foreground-light'>
+                                                {
+                                                    candidate.candidate_name
                                                 }
-                                                alt='.'
-                                            />
-                                        </a>
-                                    </div>
-                                )
+                                            </h2>
+                                            <a
+                                                href={
+                                                    candidate.candidate_manifesto
+                                                }
+                                                target='__blank'
+                                                className='candidate-manifesto heading-text foreground-light'
+                                            >
+                                                MANIFESTO
+                                                <img
+                                                    src={
+                                                        Manifesto_icon
+                                                    }
+                                                    alt='.'
+                                                />
+                                            </a>
+                                        </div>
+                                    );
+                                }
                             )}
                     </div>
                 </div>
-                <button className='submit-button background-accent1'>
-                    VOTE
-                </button>
+                {electionState === 1 ? (
+                    <Link
+                        className='submit-button background-accent1'
+                        onClick={() => {}}
+                        to='/'
+                    >
+                        RESULTS
+                    </Link>
+                ) : (
+                    <Link
+                        className={`submit-button background-accent1 ${
+                            electionState === 0
+                                ? ''
+                                : 'disabled'
+                        }`}
+                        onClick={() =>
+                            console.log('Clicked')
+                        }
+                        to={{
+                            pathname: `/dashboard/poll/${params.election_id}/voting`,
+                            search: `?candidates=${totalCandidates.toString()}`,
+                        }}
+                    >
+                        VOTE
+                    </Link>
+                )}
             </div>
         </div>
     );

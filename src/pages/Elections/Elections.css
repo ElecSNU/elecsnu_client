@@ -57,3 +57,8 @@
     align-self: center;
     background-color: var(--accent2);
 }
+
+#election .submit-button.disabled {
+    filter: grayscale();
+    pointer-events: none;
+}
