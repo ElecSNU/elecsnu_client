@@ -8,6 +8,9 @@ import ParticleBackground from './components/ParticleBackground/ParticleBackgrou
 const Capabilities = React.lazy(() =>
     import('./pages/Capabilities/Capabilities')
 );
+const AboutUs = React.lazy(() =>
+    import('./pages/AboutUs/AboutUs')
+);
 const Login = React.lazy(() =>
     import('./pages/Login/Login')
 );
@@ -43,6 +46,9 @@ const MainPage = () => {
                     <ParticleBackground
                         child={Capabilities}
                     />
+                </Route>
+                <Route exact path='/about-us'>
+                    <ParticleBackground child={AboutUs} />
                 </Route>
                 <Route exact path='/login'>
                     <ParticleBackground child={Login} />
