@@ -2,7 +2,7 @@
 
 exports[`Tests the rendering of Capabilities 1`] = `
 <div
-  id="capabilities"
+  id="capabilities-page"
 >
   <div
     className="capabilities-container background-light-translucent border-radius-15 box-shadow"
@@ -19,10 +19,14 @@ exports[`Tests the rendering of Capabilities 1`] = `
         className="capability-link"
         href="#integrity"
       >
-        <img
-          alt=""
-          src=""
-        />
+        <div
+          className="img-container background-1"
+        >
+          <img
+            alt=""
+            src="integrity.png"
+          />
+        </div>
         <h1
           className="heading-text foreground-accent1 capital-text center-text"
         >
@@ -33,10 +37,14 @@ exports[`Tests the rendering of Capabilities 1`] = `
         className="capability-link"
         href="#security"
       >
-        <img
-          alt=""
-          src=""
-        />
+        <div
+          className="img-container background-1"
+        >
+          <img
+            alt=""
+            src="security.png"
+          />
+        </div>
         <h1
           className="heading-text foreground-accent1 capital-text center-text"
         >
@@ -47,10 +55,14 @@ exports[`Tests the rendering of Capabilities 1`] = `
         className="capability-link"
         href="#admin"
       >
-        <img
-          alt=""
-          src=""
-        />
+        <div
+          className="img-container background-1"
+        >
+          <img
+            alt=""
+            src="admin.png"
+          />
+        </div>
         <h1
           className="heading-text foreground-accent1 capital-text center-text"
         >
@@ -61,10 +73,14 @@ exports[`Tests the rendering of Capabilities 1`] = `
         className="capability-link"
         href="#voter"
       >
-        <img
-          alt=""
-          src=""
-        />
+        <div
+          className="img-container background-1"
+        >
+          <img
+            alt=""
+            src="voter.png"
+          />
+        </div>
         <h1
           className="heading-text foreground-accent1 capital-text center-text"
         >

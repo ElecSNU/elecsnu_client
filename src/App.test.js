@@ -4,6 +4,6 @@ import renderer from 'react-test-renderer'
 
 test('checks the working of the website', () => {
     const div = document.createElement("div")
-    const tree = renderer.create(<App/>).toJSON();
+    const tree = renderer.create(<index/>).toJSON();
     expect(tree).toMatchSnapshot();
 });
