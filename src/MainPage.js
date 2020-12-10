@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import useLoader from './hooks/useLoader';
+import { useStoreActions } from 'easy-peasy';
 
 import PrivateRoute from './components/PrivateRoute';
 import ParticleBackground from './components/ParticleBackground/ParticleBackground';
@@ -30,9 +32,19 @@ const Voting = React.lazy(() =>
 const MainPage = () => {
     const showLoader = useLoader();
 
+    const checkLoginAction = useStoreActions(
+        (actions) => actions.accountModel.check_login
+    );
+
     useEffect(() => {
         showLoader(false);
     });
+
+    useEffect(() => {
+        if (window.location.pathname === '/dashboard')
+            checkLoginAction();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <div id='main-page'>
@@ -45,6 +57,7 @@ const MainPage = () => {
                 <Route exact path='/capabilities'>
                     <ParticleBackground
                         child={Capabilities}
+                        id={uuidv4()}
                     />
                 </Route>
                 <Route exact path='/about-us'>

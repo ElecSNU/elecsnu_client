@@ -119,6 +119,8 @@ const run_deploy = () => {
     });
 };
 
-const main = () => {};
+const main = () => {
+    run_test();
+};
 
 main();

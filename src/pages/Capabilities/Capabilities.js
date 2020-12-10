@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Capabilities.css';
 
 import VoterIcon from '../../assets/images/voter.png';

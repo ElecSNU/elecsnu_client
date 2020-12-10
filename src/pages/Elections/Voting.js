@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import ParticleBackground from '../../components/ParticleBackground/ParticleBackground';
 
@@ -37,7 +37,7 @@ const VotingPage = () => {
     );
 };
 
-const Voting = (props) => {
+const Voting = () => {
     useEffect(() => {
         // toast.info('Please provide camera permissions!');
     }, []);
