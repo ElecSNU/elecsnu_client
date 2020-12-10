@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests the rendering of AboutUs 1`] = `
+<div
+  id="about-us"
+>
+  <div
+    className="about-us-container border-radius-15 box-shadow background-light-translucent"
+  >
+    <div
+      className="about-us-heading heading-text background-dark border-radius-15 foreground-light center-text"
+    >
+      OUR TEAM
+    </div>
+    <div
+      className="teammates"
+    >
+      <div
+        className="teammate-card background-accent1 border-radius-15 box-shadow"
+      >
+        <img
+          alt=""
+          className="teammate-img"
+          src="megha.png"
+        />
+        <h1
+          className="teammate-name heading-text capital-text foreground-light"
+        >
+          Megha Agarwal
+        </h1>
+        <div
+          className="divider"
+        />
+        <h1
+          className="teammate-name subheading-text capital-text foreground-light"
+        >
+          DESIGNER
+        </h1>
+      </div>
+      <div
+        className="teammate-card background-1 border-radius-15 box-shadow"
+      >
+        <img
+          alt=""
+          className="teammate-img"
+          src="ishit.png"
+        />
+        <h1
+          className="teammate-name heading-text capital-text foreground-light"
+        >
+          Ishit Beswal
+        </h1>
+        <div
+          className="divider"
+        />
+        <h1
+          className="teammate-name subheading-text capital-text foreground-light"
+        >
+          Coder
+        </h1>
+      </div>
+      <div
+        className="teammate-card background-1 border-radius-15 box-shadow"
+      >
+        <img
+          alt=""
+          className="teammate-img"
+          src="yashi.png"
+        />
+        <h1
+          className="teammate-name heading-text capital-text foreground-light"
+        >
+          Yashi Jain
+        </h1>
+        <div
+          className="divider"
+        />
+        <h1
+          className="teammate-name subheading-text capital-text foreground-light"
+        >
+          Coder
+        </h1>
+      </div>
+      <div
+        className="teammate-card background-accent2     border-radius-15 box-shadow"
+      >
+        <img
+          alt=""
+          className="teammate-img"
+          src="kaustubh.png"
+        />
+        <h1
+          className="teammate-name heading-text capital-text foreground-light"
+        >
+          Kaustubh Rai
+        </h1>
+        <div
+          className="divider"
+        />
+        <h1
+          className="teammate-name subheading-text capital-text foreground-light"
+        >
+          Tester
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tests the rendering of Capabilities 1`] = `
+<div
+  id="about-us"
+>
+  <div
+    className="about-us-container border-radius-15 box-shadow background-light-translucent"
+  >
+    <div
+      className="about-us-heading heading-text background-dark border-radius-15 foreground-light center-text"
+    >
+      OUR TEAM
+    </div>
+    <div
+      className="teammates"
+    >
+      <div
+        className="teammate-card background-accent1 border-radius-15 box-shadow"
+      >
+        <img
+          alt=""
+          className="teammate-img"
+          src="megha.png"
+        />
+        <h1
+          className="teammate-name heading-text capital-text foreground-light"
+        >
+          Megha Agarwal
+        </h1>
+        <div
+          className="divider"
+        />
+        <h1
+          className="teammate-name subheading-text capital-text foreground-light"
+        >
+          DESIGNER
+        </h1>
+      </div>
+      <div
+        className="teammate-card background-1 border-radius-15 box-shadow"
+      >
+        <img
+          alt=""
+          className="teammate-img"
+          src="ishit.png"
+        />
+        <h1
+          className="teammate-name heading-text capital-text foreground-light"
+        >
+          Ishit Beswal
+        </h1>
+        <div
+          className="divider"
+        />
+        <h1
+          className="teammate-name subheading-text capital-text foreground-light"
+        >
+          Coder
+        </h1>
+      </div>
+      <div
+        className="teammate-card background-1 border-radius-15 box-shadow"
+      >
+        <img
+          alt=""
+          className="teammate-img"
+          src="yashi.png"
+        />
+        <h1
+          className="teammate-name heading-text capital-text foreground-light"
+        >
+          Yashi Jain
+        </h1>
+        <div
+          className="divider"
+        />
+        <h1
+          className="teammate-name subheading-text capital-text foreground-light"
+        >
+          Coder
+        </h1>
+      </div>
+      <div
+        className="teammate-card background-accent2     border-radius-15 box-shadow"
+      >
+        <img
+          alt=""
+          className="teammate-img"
+          src="kaustubh.png"
+        />
+        <h1
+          className="teammate-name heading-text capital-text foreground-light"
+        >
+          Kaustubh Rai
+        </h1>
+        <div
+          className="divider"
+        />
+        <h1
+          className="teammate-name subheading-text capital-text foreground-light"
+        >
+          Tester
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,36 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests the rendering of the Authentication side 1`] = `
-<section
-  className="background-1 "
-  id="design-side"
->
-  <div
-    className="text-1 heading-text foreground-light"
-  >
-    <div>
-      OUR
-    </div>
-    <div>
-      VOTE
-    </div>
-  </div>
-  <div
-    className="text-2 heading-text foreground-light"
-  >
-    <div>
-      IS
-    </div>
-    <div>
-      OUR
-    </div>
-    <div>
-      VOICE
-    </div>
-  </div>
-</section>
-`;
-
 exports[`Tests the rendering of the Design side 1`] = `
 <section
   className="background-1 "
