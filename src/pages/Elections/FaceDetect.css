@@ -1,4 +1,4 @@
-#face-recog {
+#face-detect {
     height: 100%;
     width: 100%;
     display: flex;
@@ -7,6 +7,6 @@
     align-items: center;
 }
 
-#face-recog .video {
+#face-detect .video {
     width: 75%;
 }

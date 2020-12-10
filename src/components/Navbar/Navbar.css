@@ -12,11 +12,28 @@
     color: var(--light);
     font-size: 1.5rem;
     transition: color 0.6s;
+    position: relative;
+}
+
+#navbar .underline {
+    height: 2.5px;
+    width: 0%;
+    border-radius: 10rem;
+    position: absolute;
+    left: 0;
+    bottom: -25%;
+    background-color: var(--background);
+    transition: all 0.7s ease-in-out;
 }
 
 #navbar a:hover,
 #navbar a.active:not(.logout) {
-    color: var(--dark);
+    color: var(--background);
+}
+
+#navbar a:hover .underline,
+#navbar a.active:not(.logout) .underline {
+    width: 100%;
 }
 
 #navbar a::after {
@@ -27,8 +44,18 @@
     background-color: var(--dark);
 }
 
+.brand {
+    display: grid;
+    place-items: center;
+}
+
 .brand a {
-    font-size: 2.5rem;
+    font-size: 3.5rem !important;
+    font-family: 'brandFont';
+    color: rgb(10, 36, 99) !important;
+    text-shadow: 2.5px 2.5px rgba(45, 55, 73, 0.85),
+        5px 5px rgba(178, 204, 255, 0.85);
+    letter-spacing: 0.25rem;
 }
 
 .links {

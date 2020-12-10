@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { useStoreActions } from 'easy-peasy';
 import useLoader from './hooks/useLoader';
 
 import PrivateRoute from './components/PrivateRoute';
@@ -26,20 +25,11 @@ const Voting = React.lazy(() =>
 );
 
 const MainPage = () => {
-    const checkLoginAction = useStoreActions(
-        (actions) => actions.accountModel.check_login
-    );
-
     const showLoader = useLoader();
 
     useEffect(() => {
         showLoader(false);
     });
-
-    useEffect(() => {
-        // checkLoginAction();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <div id='main-page'>
@@ -69,6 +59,12 @@ const MainPage = () => {
                 <PrivateRoute
                     exact
                     path='/dashboard/poll/:election_id/voting'
+                >
+                    <Voting />
+                </PrivateRoute>
+                <PrivateRoute
+                    exact
+                    path='/dashboard/poll/:election_id/voting/detected'
                 >
                     <Voting />
                 </PrivateRoute>

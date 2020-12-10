@@ -1,5 +1,3 @@
-let urls = [];
-
 export const uploadImage = async (
     imageBlob,
     fire_storage
@@ -18,14 +16,6 @@ export const uploadImage = async (
                     'y'
                 );
             });
-
-        let url = await fire_storage
-            .ref('face_image')
-            .getDownloadURL();
-
-        urls = [...urls, url];
-
-        console.log(urls);
     }
 };
 
