@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests the rendering of Face recognition component in all its entirety 1`] = `<index />`;
