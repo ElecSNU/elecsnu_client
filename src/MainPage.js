@@ -74,6 +74,12 @@ const MainPage = () => {
                 >
                     <Voting />
                 </PrivateRoute>
+                <PrivateRoute
+                    exact
+                    path='/dashboard/poll/:election_id/voting/recognised'
+                >
+                    <Voting />
+                </PrivateRoute>
             </Switch>
         </div>
     );

@@ -38,8 +38,11 @@ const FaceDetect = () => {
         if (detections2.length === 1) {
             if (capture())
                 setTimeout(() => {
-                    window.location.pathname =
-                        '/dashboard/poll/1HqRbwS93Oh9WnZiiVUP/voting/detected';
+                    const elecId = window.location.pathname.split(
+                        '/'
+                    )[3];
+
+                    window.location.pathname = `/dashboard/poll/${elecId}/voting/detected`;
                 }, 500);
 
             videoRef.current.pause();
@@ -91,6 +94,7 @@ const FaceDetect = () => {
             <h1 className='heading-text foreground-back center-text capital text'>
                 Verifying voter Identity
             </h1>
+            <br />
             {/* {faceDetectStatus ? (
                 <></>
             ) : ( */}

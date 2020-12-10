@@ -1,0 +1,39 @@
+#choosing {
+    height: 100%;
+    padding: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#choosing > * {
+    width: 100%;
+}
+
+.candidate {
+    padding: 2.5%;
+    margin: 2.5%;
+    transition: all 0.7s;
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+
+.candidate h1 {
+    transition: all 0.7s;
+}
+
+.candidate:hover,
+.candidate.chosen {
+    border: 5px solid var(--accent1);
+}
+
+.candidate:hover h1,
+.candidate.chosen h1 {
+    color: var(--accent1);
+}
+
+#choosing .submit-button {
+    width: 50%;
+}

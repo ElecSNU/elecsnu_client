@@ -66,7 +66,10 @@ const Dashboard = () => {
                     election,
                 ]);
 
-                if (!election.ended) {
+                if (
+                    !election.ended &&
+                    !election.voters.includes(user_roll_no)
+                ) {
                     updateEnd(election.id);
                 }
             } else if (
