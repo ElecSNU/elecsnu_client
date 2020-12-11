@@ -24,6 +24,7 @@
         "react-toastify": "^6.1.0",
         "react-webcam": "^5.2.2",
         "recharts": "^1.8.5",
+        "typeface-montserrat": "^1.1.13",
         "uuid": "^8.3.2",
         "web-vitals": "^0.2.4"
     },
