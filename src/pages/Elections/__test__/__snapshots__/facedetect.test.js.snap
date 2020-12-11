@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests the Sharing ability 1`] = `
+<div
+  id="face-detect"
+>
+  <h1
+    className="heading-text foreground-back center-text capital text"
+  >
+    Verifying voter Identity
+  </h1>
+  <br />
+  <video
+    autoPlay={true}
+    className="border-radius-15 box-shadow video"
+    onPlay={[Function]}
+    style={
+      Object {
+        "transform": "scale(-1, 1)",
+      }
+    }
+  />
+  <video
+    autoPlay={true}
+    className="video"
+    height={720}
+    muted={false}
+    playsInline={true}
+    style={
+      Object {
+        "opacity": "0",
+        "position": "absolute",
+      }
+    }
+    width={1280}
+  />
+</div>
+`;
