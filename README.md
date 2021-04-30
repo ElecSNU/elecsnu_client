@@ -1,3 +1,8 @@
+# Hosted Application
+## Client Side -- https://elecsnu.herokuapp.com/
+## Server side for ML recognition -- https://elecsnu-ml.herokuapp.com/
+## Admin Website -- https://elecsnu-admin.herokuapp.com/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
