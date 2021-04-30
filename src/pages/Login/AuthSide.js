@@ -40,6 +40,10 @@ const AuthSide = ({
     };
 
     useEffect(() => {
+        toast.warn(
+            'Please make sure that your credentials are present in the database'
+        );
+
         const unsubscribe = checkLoginAction();
         showLoader(false);
 

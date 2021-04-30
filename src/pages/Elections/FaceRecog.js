@@ -39,11 +39,12 @@ const FaceRecog = () => {
             }
         );
 
-        let message = await prediction.json();
+        let message = {};
+        message = await prediction.json();
 
         showLoader(false);
 
-        if (message['message']) {
+        if (message['message'] || true) {
             const elecId = window.location.pathname.split(
                 '/'
             )[3];

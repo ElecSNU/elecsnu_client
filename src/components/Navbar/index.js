@@ -34,6 +34,13 @@ const Navbar = () => {
                 </NavLink>
             </div>
             <div className='links'>
+                {/* <NavLink
+                    className='normal-text'
+                    to='/google-auth'
+                >
+                    Google
+                    <div className='underline'></div>
+                </NavLink> */}
                 <NavLink
                     className='normal-text'
                     to='/capabilities'

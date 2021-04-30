@@ -12,10 +12,7 @@ const account = {
 
     // THUNKS
     login: thunk(async (actions, { email, password }) => {
-        let emailVal =
-            email === 'ib370'
-                ? 'ishbeswal@gmail.com'
-                : `${email}@snu.edu.in`;
+        let emailVal = `${email}@snu.edu.in`;
         let passVal = password;
 
         auth.signInWithEmailAndPassword(emailVal, passVal)

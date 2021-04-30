@@ -39,6 +39,13 @@ a {
     text-decoration: none;
 }
 
+button:focus,
+a:focus,
+input:focus {
+    outline: none;
+    /* border: none; */
+}
+
 *::-webkit-scrollbar {
     width: 7.5px;
 }

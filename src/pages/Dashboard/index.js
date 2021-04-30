@@ -65,7 +65,10 @@ const Dashboard = () => {
                 election.voters.includes(user_roll_no) ||
                 election.ended ||
                 currentDateTime >=
-                    new Date(election.election_end_time)
+                    new Date(
+                        election.election_end_time.seconds *
+                            1000
+                    )
             ) {
                 setPastElections((pastElections) => [
                     ...pastElections,
@@ -83,10 +86,14 @@ const Dashboard = () => {
                     currentDateTime >=
                         new Date(
                             election.election_start_time
+                                .seconds * 1000
                         )) &&
                 !election.ended &&
                 currentDateTime <
-                    new Date(election.election_end_time)
+                    new Date(
+                        election.election_end_time.seconds *
+                            1000
+                    )
             ) {
                 setActiveElections((activeElections) => [
                     ...activeElections,
@@ -99,7 +106,10 @@ const Dashboard = () => {
             } else if (
                 !election.started &&
                 currentDateTime <
-                    new Date(election.election_start_time)
+                    new Date(
+                        election.election_start_time
+                            .seconds * 1000
+                    )
             ) {
                 setUpcomingElections(
                     (upcomingElections) => [

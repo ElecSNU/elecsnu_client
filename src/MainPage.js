@@ -30,6 +30,9 @@ const Voting = React.lazy(() =>
 const Results = React.lazy(() =>
     import('./pages/Results/Results')
 );
+const GoogleAuth = React.lazy(() =>
+    import('./pages/GoogleAuth/index')
+);
 
 const MainPage = () => {
     const showLoader = useLoader();
@@ -55,6 +58,11 @@ const MainPage = () => {
                     path='/'
                     component={HomePage}
                 />
+                <Route exact path='/google-auth'>
+                    <ParticleBackground
+                        child={GoogleAuth}
+                    />
+                </Route>
                 <Route exact path='/capabilities'>
                     <ParticleBackground
                         child={Capabilities}

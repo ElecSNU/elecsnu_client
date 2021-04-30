@@ -45,7 +45,9 @@ const Results = () => {
     const electionDocs = useFirestore('newelections').docs;
 
     const loadData = () => {
-        let electionId = '223';
+        let electionId = window.location.pathname.split(
+            '/'
+        )[3];
         if (electionDocs !== {}) {
             let electionDetails = {};
             electionDocs.forEach((e) => {

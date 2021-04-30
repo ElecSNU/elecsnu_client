@@ -83,6 +83,7 @@ const FaceDetect = () => {
         window.localStorage.removeItem('imageUploaded');
         // loadFaceDetectModels();
         playVideo();
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

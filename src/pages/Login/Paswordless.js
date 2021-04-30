@@ -15,7 +15,7 @@ const Paswordless = ({
     const fileRef = useRef();
     const showLoader = useLoader();
 
-    const voters_data = useFirestore('voters');
+    const voters_data = useFirestore('voters_kr');
 
     const [idCardImage, setIdCardImage] = useState('');
     const [detectedRoll, setDetectedRoll] = useState(null);
@@ -48,6 +48,7 @@ const Paswordless = ({
 
     const loginPasswordless = async () => {
         if (detectedRoll != null) {
+            console.log(detectedRoll);
             showLoader(true);
 
             let voter_found = false;
@@ -63,6 +64,7 @@ const Paswordless = ({
 
             if (!voter_found || voterEmail === '') {
                 toast.error('User not Found!');
+                showLoader(false);
             } else {
                 passwordless_login_action({
                     email: voterEmail,
@@ -76,6 +78,7 @@ const Paswordless = ({
             toast.error(
                 'Roll Number not detected from ID Card! Please select a valid image'
             );
+            showLoader(false);
         }
     };
 

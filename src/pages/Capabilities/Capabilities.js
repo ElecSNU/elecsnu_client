@@ -83,11 +83,11 @@ const Capabilities = () => {
             subheading:
                 'Offer voters a straightforward, pleasant experience',
             points: [
-                {
-                    heading: 'Voter Notifications',
-                    text:
-                        'Even the admin will not be able to see who voted for whom. Thus maintaining the anonymity of votes.',
-                },
+                // {
+                //     heading: 'Voter Notifications',
+                //     text:
+                //         'Even the admin will not be able to see who voted for whom. Thus maintaining the anonymity of votes.',
+                // },
                 {
                     heading:
                         'Effective and User Friendly UI',
